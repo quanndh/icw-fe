@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
   const search = useQueryParam("search") ?? "";
 
-  const { user, loading } = useCurrentUser();
+  const { user } = useCurrentUser();
 
   const [keyword, setKeyword] = useState(search);
 
@@ -70,13 +70,7 @@ const Header = () => {
           className="rounded-md py-2 px-2 md:py-2 md:px-4 cursor-pointer"
           onClick={handleClick}
         >
-          {loading ? (
-            <div className="font-semibold">...</div>
-          ) : (
-            <div className="font-semibold truncate">
-              {user?.email ?? "Login"}
-            </div>
-          )}
+          <div className="font-semibold truncate">{user?.email ?? "Login"}</div>
         </BlurContainer>
       </div>
     </div>
